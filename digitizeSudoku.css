@@ -5,7 +5,7 @@
     margin: 0 auto;
     padding: 25px;
 
-    background-color: lightyellow;
+    /*background-color: lightyellow;*/
 }
 
 #panelContainer {
@@ -30,9 +30,12 @@
 }
 
 .tile-board{
-    width: 58px;
-    height: 58px;
+    width: 60px;
+    height: 60px;
     border: 1px solid lightgray;
+
+    /*Box-sizing is used to include the padding and border into the total width*/
+    box-sizing: border-box;
 
     /*Text*/
     font-size: 20px;
@@ -42,6 +45,9 @@
     align-items: center;
 }
 
+.tile-board:hover {
+    border: 3px solid crimson;
+}
 .horizontalLine-bottom {
     border-bottom: 1px solid black;
 }
@@ -54,4 +60,22 @@
 
 .verticalLine-left {
     border-left: 1px solid black;
+}
+.verticalLine-outsideLeft {
+    border-left: 2px solid lightgray;
+}
+.verticalLine-outsideRight {
+    border-right: 2px solid lightgray;
+}
+.horizontalLine-outsideBottom {
+    border-bottom: 2px solid lightgray;
+}
+.horizontalLine-outsideTop {
+    border-top: 2px solid lightgray;
+}
+.tile-selected {
+    background-color: yellow;
+}
+.tile-selectedAdditional {
+    background-color: lightgoldenrodyellow;
 }

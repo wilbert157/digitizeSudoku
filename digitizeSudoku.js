@@ -37,10 +37,44 @@ function setGame() {
             if (c==3 || c==6){
                 tile.classList.add("verticalLine-left");
             }
+            if (c==0){
+                tile.classList.add("verticalLine-outsideLeft");
+            }
+            if (c==8){
+                tile.classList.add("verticalLine-outsideRight");
+            }
+            if (r==0){
+                tile.classList.add("horizontalLine-outsideTop");
+            }
+            if (r==8){
+                tile.classList.add("horizontalLine-outsideBottom");
+            }
+
+            tile.addEventListener("click", selectedTile);
 
             //adding tile-board class to each tile
             tile.classList.add("tile-board");
             document.getElementById("sudokuBoard").append(tile);
         }
     }
+}
+
+function selectedTile() {
+    if (tileSelected != null) {
+        tileSelected.classList.remove("tile-selected");
+    }
+    tileSelected = this;
+    tileSelected.classList.add("tile-selected");
+    document.addEventListener("keyup", (e) => {
+        //alert(e.code);
+        if ("Digit1" <= e.code && e.code <= "Digit9") {
+            tileSelected.innerText = e.code[5];
+        }
+        else if ("Numpad1" <= e.code && e.code <= "Numpad9") {
+            tileSelected.innerText = e.code[6];
+        }
+        else if (e.code == "Backspace" || e.code == "Delete"){
+            tileSelected.innerText = "";
+        }
+    })
 }
